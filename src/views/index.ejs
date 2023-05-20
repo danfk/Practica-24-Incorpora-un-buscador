@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <forms action="/find" method="POST">
+            <label for="criterio">Criterio:</label>
+            <input type="text" id="criteria" name="criteria"><br><br>
+            <input type="submit" value="Buscar">
+        </forms>
+        <table>
+            <tr>
+                <th>NSS</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Tipo de sangre</th>
+                <th></th>
+                <% Object.keys(Persons).forEach(function(prop) { %>
+                    <tr>
+                        <td><%- Persons[prop].nss %></td>
+                        <td><%- Persons[prop].nombre %></td>
+                        <td><%- Persons[prop].edad %></td>
+                        <td><%- Persons[prop].tipoSangre %></td>
+                        <td><a href="<%= `deletePerson/%Persons[prop]._id}` %>">Delete</a></td>
+                        <td><a href="<%= `findById/%Persons[prop]._id}` %>">Update</a></td>
+                    </tr>
+                <% }); %>
+            </tr>
+        </table>
+
+        <table action="/addStudent" method="POST">
+            <tr>
+                <td>Nombre</td>
+                <td>Edad</td>
+                <td>Tipo sangre</td>
+                <td>NSS</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="nombre" name="nombre"></td>
+                <td><input type="text" id="edad" name="edad"></td>
+                <td><input type="text" id="tipoSangre" name="tipoSangre"></td>
+                <td><input type="text" id="nss" name="nss"></td>
+                <td><a href="insert.ejs">Editar</a></td>
+                <td><a href="">Borrar</a></td>
+            </tr>
+        </table>
+
+        <a href="./addPerson">Agregar</a>
+    </body>
+</html>

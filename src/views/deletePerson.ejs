@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Eliminar persona</h1>
+        <form action="/deletePerson" method="GET">
+            <label for="objId">ID:</label>
+            <input type="text" id="objId" name="objId" value="<%= `${myPerson._id}` %>"><br><br>
+            <input type="submit" value="submit">
+        </form>
+    </body>
+</html>
